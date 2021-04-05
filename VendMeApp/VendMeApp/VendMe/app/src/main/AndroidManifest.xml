@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ss_3.iastate.edu.vendme">
+
+
+    <!-- These lines prompt the user to agree to the app accessing and using the below types of data and hardware. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
+    <!-- MAIN APPLICATION SPECIFICATIONS-->
+    <application
+        android:name=".AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+
+        <!-- This is a "data tag" is a requirement if the app is going to support API levels 15 and lower. -->
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+
+        <!-- USED FOR GOOGLE MAPS -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <!-- APPLICATION PARENT -->
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+        <!-- #######################  MAIN ACTIVITY  ########################################-->
+        <!-- Launched when "Search This Area" button is pressed. -->
+        <activity android:name=".MachineSelection"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
+        <!-- Launched when the new submission (WRENCH) button is pressed. -->
+        <activity android:name=".SubmitNewMachineActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
+
+        <!-- #######################  MACHINE SELECTION  ########################################-->
+
+        <activity android:name=".MachineDescription"
+            android:parentActivityName=".MachineSelection">
+        </activity>
+
+        <!-- Launched when the Machine Location button is pressed. -->
+        <activity android:name=".NewMachineLocationActivity"
+            android:parentActivityName=".SubmitNewMachineActivity">
+        </activity>-
+
+    </application>
+
+</manifest>
